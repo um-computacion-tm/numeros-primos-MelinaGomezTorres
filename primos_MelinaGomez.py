@@ -1,63 +1,67 @@
 import unittest
 
-def is_primo(value):
-    if value <= 1:
+def es_primo(n):
+    if n <= 1:
         return False
-    elif value <= 3:
+    if n <= 3:
         return True
-    elif value % 2 == 0 or value % 3 == 0:
+    if n % 2 == 0 or n % 3 == 0:
         return False
     i = 5
-    while i * i <= value:
-        if value % i == 0 or value % (i + 2) == 0:
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
             return False
         i += 6
     return True
 
 class TestPrimos(unittest.TestCase):
     def test_1(self):
-        result = is_primo(1)
-        self.assertEqual(result, False)
-    
+        self.assertTrue(es_primo(2))
+
     def test_2(self):
-        result = is_primo(2)
-        self.assertEqual(result, True)
+        self.assertTrue(es_primo(3))
 
     def test_3(self):
-        result = is_primo(3)
-        self.assertEqual(result, True)
+        self.assertTrue(es_primo(5))
 
     def test_4(self):
-        result = is_primo(4)
-        self.assertEqual(result, False)
+        self.assertTrue(es_primo(7))
 
     def test_5(self):
-        result = is_primo(5)
-        self.assertEqual(result, True)
+        self.assertTrue(es_primo(11))
 
-    def test_60(self):
-        result = is_primo(60)
-        self.assertEqual(result, False)
+    def test_6(self):
+        self.assertTrue(es_primo(13))
 
-    def test_1049(self):
-        result = is_primo(1049)
-        self.assertEqual(result, True)
-    
-    def test_1069(self):
-        result = is_primo(1069)
-        self.assertEqual(result, True)
+    def test_7(self):
+        self.assertFalse(es_primo(1))
 
-    def test_num_negativo(self):
-        result = is_primo(-20)
-        self.assertEqual(result, False)
+    def test_8(self):
+        self.assertFalse(es_primo(4))
 
-    def test_num3_negativo(self):
-        result = is_primo(-105)
-        self.assertEqual(result, False)
+    def test_9(self):
+        self.assertFalse(es_primo(6))
 
-    def test_num4_negativo(self):
-        result = is_primo(-1032)
-        self.assertEqual(result, False)
+    def test_10(self):
+        self.assertFalse(es_primo(8))
+
+    def test_11(self):
+        self.assertFalse(es_primo(9))
+
+    def test_12(self):
+        self.assertFalse(es_primo(10))
+
+    def test_13(self):
+        self.assertFalse(es_primo(12))
+
+    def test_14(self):
+        self.assertTrue(es_primo(9999999967))  # Número primo grande
+
+    def test_15(self):
+        self.assertFalse(es_primo(9999999968))  # Número compuesto grande
+
+    def test_16(self):
+        self.assertFalse(es_primo(-1032))
 
 if __name__ == '__main__':
     unittest.main()
