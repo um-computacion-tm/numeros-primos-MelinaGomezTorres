@@ -51,11 +51,11 @@ class TestPrimos(unittest.TestCase):
         result = is_primo(-20)
         self.assertEqual(result, False)
 
-    def test_num3_negativo(self):
+    def test_num2_negativo(self):
         result = is_primo(-105)
         self.assertEqual(result, False)
 
-    def test_num4_negativo(self):
+    def test_num3_negativo(self):
         result = is_primo(-1032)
         self.assertEqual(result, False)
 
